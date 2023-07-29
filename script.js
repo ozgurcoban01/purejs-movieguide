@@ -5,6 +5,15 @@ const searchedFilmPoster=document.querySelector(".searched-film-poster")
 const searchedFilms=document.querySelector(".searched-films")
 const firstSearchPageSearchContainerInput=document.querySelector(".first-search-page-search-container-input")
 const movieAdviceMoviePoster=document.querySelector(".movie-advice-movie-poster");
+const movieAdviceSelecterButton=document.querySelectorAll(".movie-advice-selecter")
+
+const movieAdviceSelecterButtonOneLeft=document.querySelector(".movie-advice-selecter-1-l")
+const movieAdviceSelecterButtonOneMidd=document.querySelector(".movie-advice-selecter-1-m")
+const movieAdviceSelecterButtonOneRight=document.querySelector(".movie-advice-selecter-1-r")
+
+const movieAdviceSelecterIndicatorOne=document.querySelector(".movie-advice-selecter-selection-1")
+const movieAdviceSelecterIndicatorTwo=document.querySelector(".movie-advice-selecter-selection-2")
+const movieAdviceSelecterIndicatorTre=document.querySelector(".movie-advice-selecter-selection-3")
 
 firstSearchPageSearchContainerInput.value=""
 console.log(firstSearchPageSearchContainerInput.value)
@@ -81,4 +90,15 @@ firstSearchPageSearchContainerInput.addEventListener("keyup",()=>{
         searchedFilms.classList.add("hide")
         searchedFilms.innerHTML=""
     }
+})
+
+movieAdviceSelecterButtonOneLeft.addEventListener("click",()=>{
+    movieAdviceSelecterIndicatorOne.style.left="0%"
+    console.log("asdasd")
+})
+movieAdviceSelecterButtonOneMidd.addEventListener("click",()=>{
+    movieAdviceSelecterIndicatorOne.style.left="33%"
+})
+movieAdviceSelecterButtonOneRight.addEventListener("click",()=>{
+    movieAdviceSelecterIndicatorOne.style.left="66%"
 })
