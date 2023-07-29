@@ -4,6 +4,7 @@ const firstSearchPage=document.querySelector(".first-search-page")
 const searchedFilmPoster=document.querySelector(".searched-film-poster")
 const searchedFilms=document.querySelector(".searched-films")
 const firstSearchPageSearchContainerInput=document.querySelector(".first-search-page-search-container-input")
+const movieAdviceMoviePoster=document.querySelector(".movie-advice-movie-poster");
 
 firstSearchPageSearchContainerInput.value=""
 console.log(firstSearchPageSearchContainerInput.value)
@@ -18,7 +19,7 @@ async function getSearchedFilms(param){
 getPopularFilms().then(e=>e.results).then(e=>{
 
     firstSearchPage.style.backgroundImage ="url(https://image.tmdb.org/t/p/original/"+e[0].backdrop_path+")"
-
+    movieAdviceMoviePoster.src="https://image.tmdb.org/t/p/original//cxSKca4dNlk7O7PMiEYT203vlIw.jpg"
 })
 
 /*
