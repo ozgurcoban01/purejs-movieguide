@@ -12,6 +12,7 @@
 .myNavbar {
   transition: opacity 0.5s;
   position: fixed;
+  opacity: 0;
 }
 .main-container {
 }
@@ -64,13 +65,14 @@
   background-color: rgba(0, 0, 0, 0.555);
   width: 100%;
   max-height: 50vh;
+
 }
 .searched-film {
   background-color: rgba(94, 0, 0, 0.562);
   width: 100%;
   min-height: 200px;
   display: flex;
-  align-items: center;
+  align-items: center;  cursor: pointer;
 }
 .searched-film-poster {
   height: 200px;
@@ -217,4 +219,37 @@ transition: 0.8s;
 }
 .movie-advice-selecter{
   transition: 0.8s;
+}
+.myNavbar{
+  font-size: xx-large;
+  color: white;
+/* From https://css.glass */
+background: rgba(0, 0, 0, 0.23);
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+transition: 0.3s;
+}
+.myNavbar:hover{
+
+background: rgba(0, 0, 0, 0.53);
+
+
+}
+.myNavbar span span{
+  color: rgb(106, 0, 0);
+  font-weight: 900;
+  transition: 0.3s;
+} 
+.logo{
+  cursor: pointer;
+}
+.logo:hover > span{
+  color: rgb(198, 0, 0);
+}
+
+.search{
+  cursor: pointer;
+  font-size: medium;
 }

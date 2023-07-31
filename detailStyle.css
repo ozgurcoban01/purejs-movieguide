@@ -1,0 +1,8 @@
+body{
+    height: 200vh;
+    width: 100vw;
+    background-color: red;
+}
+.myNavbar{
+    opacity: 1;
+}

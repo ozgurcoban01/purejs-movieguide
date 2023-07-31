@@ -70,6 +70,8 @@ getCarouselPopularMovies().then(e=>e.results).then(e=>{
     arr.map((e)=>{
         e.addEventListener("click",()=>{
             console.log(e)
+            window.location.href="detail.html"
+            localStorage.setItem("detailId",e.id)
         })
     })
 
@@ -90,6 +92,7 @@ getCarouselNowPlayingMovies().then(e=>e.results).then(e=>{
     arr.map((e)=>{
         e.addEventListener("click",()=>{
             console.log(e)
+        
         })
     })
 
@@ -144,7 +147,7 @@ firstSearchPageSearchContainerInput.addEventListener("keyup",()=>{
         getSearchedFilms(firstSearchPageSearchContainerInput.value).then(e=>e.results).then(e=>{
             e.map(film=>{
                 searchedFilms.innerHTML+=`
-                            <div class="searched-film p-3 my-3 d-flex">
+                            <div class="searched-film p-3 my-3 d-flex "id=${film.id}>
                                 <img src ="https://image.tmdb.org/t/p/original/${film.poster_path}" class="searched-film-poster rounded">
                                 <div class="searched-film-details p-3">
                                     <div class="searched-film-details-title text-white fs-1">${film.title}</div>
@@ -156,11 +159,23 @@ firstSearchPageSearchContainerInput.addEventListener("keyup",()=>{
                             </div>
                 `
             })
+            const arr = [...searchedFilms.children];
+            arr.map((e)=>{
+                e.addEventListener("click",()=>{
+                    console.log(e)
+                    window.location.href="detail.html"
+                    localStorage.setItem("detailId",e.id)
+                })
+            })
+        
         })
     }else{
         searchedFilms.classList.add("hide")
         searchedFilms.innerHTML=""
     }
+  
+
+   
 })
 
 
@@ -336,4 +351,10 @@ movieAdviceSelecterButtonTreRight.addEventListener("click",()=>{
     movieAdviceSelecterButtonTreLeft.style.color="gray"
     movieAdviceSelecterButtonTreMidd.style.color="gray"
     movieAdviceSelecterButtonTreRight.style.color="white"
+})
+
+const searchButton=document.querySelector(".search")
+searchButton.addEventListener("click",()=>{
+    window.location.href="detail.html"
+              
 })
