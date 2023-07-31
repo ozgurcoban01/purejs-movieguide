@@ -171,13 +171,20 @@ movieAdviceSelecterButtonOneLeft.addEventListener("click",()=>{
         movieAdviceMoviesOne.innerHTML=""
         e.map(e=>{
             movieAdviceMoviesOne.innerHTML+=`
-            <div class="movie-advice-movie">
+            <div class="movie-advice-movie" id=${e.id}>
              <img src ="https://image.tmdb.org/t/p/original/${e.poster_path}" class="movie-advice-movie-poster">
              <div class="movie-advice-movie-name">${e.title}</div>
             </div>
             `
         })
-       
+        
+        const arr = [...movieAdviceMoviesOne.children];
+
+        arr.map((e)=>{
+            e.addEventListener("click",()=>{
+                console.log(e)
+            })
+        })
     
     })
     movieAdviceSelecterButtonOneLeft.style.color="white"
@@ -190,13 +197,19 @@ movieAdviceSelecterButtonOneRight.addEventListener("click",()=>{
         movieAdviceMoviesOne.innerHTML=""
         e.map(e=>{
             movieAdviceMoviesOne.innerHTML+=`
-            <div class="movie-advice-movie">
+            <div class="movie-advice-movie" id=${e.id}>
              <img src ="https://image.tmdb.org/t/p/original/${e.poster_path}" class="movie-advice-movie-poster">
              <div class="movie-advice-movie-name">${e.title}</div>
             </div>
             `
         })
-        
+        const arr = [...movieAdviceMoviesOne.children];
+
+        arr.map((e)=>{
+            e.addEventListener("click",()=>{
+                console.log(e)
+            })
+        })
     })
     movieAdviceSelecterButtonOneLeft.style.color="gray"
     movieAdviceSelecterButtonOneRight.style.color="white"
@@ -209,11 +222,18 @@ movieAdviceSelecterButtonTwoLeft.addEventListener("click",()=>{
         movieAdviceMoviesTwo.innerHTML=""
         e.map(e=>{
             movieAdviceMoviesTwo.innerHTML+=`
-            <div class="movie-advice-movie">
+            <div class="movie-advice-movie" id=${e.id}>
              <img src ="https://image.tmdb.org/t/p/original/${e.poster_path}" class="movie-advice-movie-poster">
              <div class="movie-advice-movie-name">${e.title}</div>
             </div>
             `
+        })
+        const arr = [...movieAdviceMoviesTwo.children];
+
+        arr.map((e)=>{
+            e.addEventListener("click",()=>{
+                console.log(e)
+            })
         })
     })
     movieAdviceSelecterButtonTwoLeft.style.color="white"
@@ -225,11 +245,18 @@ movieAdviceSelecterButtonTwoRight.addEventListener("click",()=>{
         movieAdviceMoviesTwo.innerHTML=""
         e.map(e=>{
             movieAdviceMoviesTwo.innerHTML+=`
-            <div class="movie-advice-movie">
+            <div class="movie-advice-movie" id=${e.id}>
              <img src ="https://image.tmdb.org/t/p/original/${e.poster_path}" class="movie-advice-movie-poster">
              <div class="movie-advice-movie-name">${e.title}</div>
             </div>
             `
+        })
+        const arr = [...movieAdviceMoviesTwo.children];
+
+        arr.map((e)=>{
+            e.addEventListener("click",()=>{
+                console.log(e)
+            })
         })
     })
     movieAdviceSelecterButtonTwoLeft.style.color="gray"
@@ -243,11 +270,18 @@ movieAdviceSelecterButtonTreLeft.addEventListener("click",()=>{
         movieAdviceMoviesTre.innerHTML=""
         e.map(e=>{
             movieAdviceMoviesTre.innerHTML+=`
-            <div class="movie-advice-movie">
+            <div class="movie-advice-movie" id=${e.id}>
              <img src ="https://image.tmdb.org/t/p/original/${e.poster_path}" class="movie-advice-movie-poster">
              <div class="movie-advice-movie-name">${e.title}</div>
             </div>
             `
+        })
+        const arr = [...movieAdviceMoviesTre.children];
+
+        arr.map((e)=>{
+            e.addEventListener("click",()=>{
+                console.log(e)
+            })
         })
     })
     movieAdviceSelecterButtonTreLeft.style.color="white"
@@ -261,11 +295,18 @@ movieAdviceSelecterButtonTreMidd.addEventListener("click",()=>{
         movieAdviceMoviesTre.innerHTML=""
         e.map(e=>{
             movieAdviceMoviesTre.innerHTML+=`
-            <div class="movie-advice-movie">
+            <div class="movie-advice-movie" id=${e.id}>
              <img src ="https://image.tmdb.org/t/p/original/${e.poster_path}" class="movie-advice-movie-poster">
              <div class="movie-advice-movie-name">${e.title}</div>
             </div>
             `
+        })
+        const arr = [...movieAdviceMoviesTre.children];
+
+        arr.map((e)=>{
+            e.addEventListener("click",()=>{
+                console.log(e)
+            })
         })
     })
     movieAdviceSelecterButtonTreLeft.style.color="gray"
@@ -278,11 +319,18 @@ movieAdviceSelecterButtonTreRight.addEventListener("click",()=>{
         movieAdviceMoviesTre.innerHTML=""
         e.map(e=>{
             movieAdviceMoviesTre.innerHTML+=`
-            <div class="movie-advice-movie">
+            <div class="movie-advice-movie" id=${e.id}>
              <img src ="https://image.tmdb.org/t/p/original/${e.poster_path}" class="movie-advice-movie-poster">
              <div class="movie-advice-movie-name">${e.title}</div>
             </div>
             `
+        })
+        const arr = [...movieAdviceMoviesTre.children];
+
+        arr.map((e)=>{
+            e.addEventListener("click",()=>{
+                console.log(e)
+            })
         })
     })
     movieAdviceSelecterButtonTreLeft.style.color="gray"
