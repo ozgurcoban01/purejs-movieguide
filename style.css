@@ -28,7 +28,7 @@
 .first-search-page-background-effect {
   background: rgb(134, 0, 0);
   background: linear-gradient(
-    360deg,
+    180deg,
     rgba(134, 0, 0, 0.5746673669467788) 0%,
     rgba(0, 0, 0, 1) 100%
   );
@@ -84,89 +84,137 @@
 .movie-advice-container {
   width: 100%;
   min-height: 100vh;
-  background-color: red;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
 }
 .movie-advices {
   margin: 30px 0;
   width: 70%;
   height: 400px;
-  background-color: rgb(0, 255, 0);
+  background-color: rgba(255, 0, 0, 0.37);
   padding: 10px;
   display: flex;
   align-items: start;
-    flex-direction: column;
-  justify-content: space-between;    border-radius: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  color: white;
+  font-size: large;
+  font-weight: 900;
 }
 .myNavbar {
   z-index: 10;
 }
 .movie-advice-selecters {
-    position: relative;
+  font-size: small;
+  font-weight: 600;
+  position: relative;
   width: 40%;
   min-width: 200px;
-  background-color: blue;
+  background-color: rgba(0, 0, 0, 0.582);
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 100px;
+  cursor: pointer;
+transition: 0.8s;
+  color: gray;
+  transition: 0.8s;
 }
 .movie-advice-selecter {
-    z-index: 1;
+  z-index: 1;
   width: 33%;
   min-height: 20px;
   background-color: transparent;
   margin: 5px;
-  border-radius: 1000px;   
+  border-radius: 1000px;
   text-align: center;
 }
-.movie-advice-selecter-selection-1 {
 
-    position: absolute;
-    width: 30%;
-    min-height: 20px;
-    background-color: rgb(255, 255, 255);
-    margin: 5px;
-    border-radius: 1000px;  
-left: 66%;
-transition: 0.2s ease;
+.movie-advice-selecter-selection-1,
+.movie-advice-selecter-selection-2,
+.movie-advice-selecter-selection-3 {
+  position: absolute;
+  width: 30%;
+  min-height: 20px;
+  background-color: rgb(131, 0, 0);
+  margin: 5px;
+  border-radius: 1000px;
+  left: 0%;
+  transition: 0.2s ease;
 }
-.movie-advice-movies{
-    height: 80%;
-    width: 100%;
-    background-color:rgb(255, 0, 0);
-    border-radius: 10px;
-padding: 10px;
-    overflow-x: scroll;
-    display: flex;
-    flex-direction: row;
+.movie-advice-movies {
+  height: 80%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.466);
+  border-radius: 10px;
+  padding: 10px;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+}
+.movie-advice-movies::-webkit-scrollbar {
+  height: 5px;
+}
+.movie-advice-movies::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 1000px;
+}
 
+.movie-advice-movie {
+  height: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
 }
-.movie-advice-movies::-webkit-scrollbar{
- height: 0px;
-    width: 0px;
+.movie-advice-movie-poster {
+  height: 100%;
+  border-radius: 10px;
+  background-color: black;
 }
-.movie-advice-movie{
-    height: 100%;
-padding: 10px;
-    border-radius: 10px;
-margin-right: 10px;
-display: flex;
-justify-content: start;
-align-items: center;
-background-color: aquamarine;
+.movie-advice-movie-name {
+  margin-left: 10px;
+  word-wrap: break-word;
 }
-.movie-advice-movie-poster{
-height: 100%;
-border-radius: 10px;
-background-color: black;
+.movie-advice-selecter-selection-1,
+.movie-advice-selecter-selection-2 {
+  width: 45%;
 }
-.movie-advice-movie-name{
-margin-left: 10px;
-word-wrap: break-word;
+.movie-advice-selecter-1-l,
+.movie-advice-selecter-1-r,
+.movie-advice-selecter-2-l,
+.movie-advice-selecter-2-r {
+  width: 50%;
+}
+
+.movie-advice-movie {
+  filter: saturate(80%);
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.movie-advice-movie:hover {
+  filter: saturate(150%);
+  background-color: rgba(0, 0, 0, 0.24);
+  opacity: 1;
+}
+.movie-advice-selecter-1-l {  
+  color: white;
+}
+.movie-advice-selecter-2-l {  
+  color: white;
+}
+.movie-advice-selecter-3-l {  
+  color: white;
+}
+.movie-advice-selecter{
+  transition: 0.8s;
 }
