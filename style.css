@@ -223,12 +223,11 @@ transition: 0.8s;
 .myNavbar{
   font-size: xx-large;
   color: white;
-/* From https://css.glass */
-background: rgba(0, 0, 0, 0.23);
+  background: rgba( 0, 0, 0, 0.3 );
 
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur( 12px );
+  -webkit-backdrop-filter: blur( 12px );
+
 transition: 0.3s;
 }
 .myNavbar:hover{
@@ -237,9 +236,10 @@ background: rgba(0, 0, 0, 0.53);
 
 
 }
+
 .myNavbar span span{
   color: rgb(106, 0, 0);
-  font-weight: 900;
+font-weight:600 ;
   transition: 0.3s;
 } 
 .logo{
@@ -250,6 +250,11 @@ background: rgba(0, 0, 0, 0.53);
 }
 
 .search{
+  color: rgba(255, 255, 255, 0.459);
   cursor: pointer;
   font-size: medium;
+  transition: 0.3s;
+}
+.search:hover{
+color: white;
 }
