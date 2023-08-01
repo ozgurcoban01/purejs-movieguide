@@ -146,9 +146,23 @@ backdrop-filter: blur(20px);
         align-items: center;
             justify-content: center;
     }
+    .movie-recomendations{
+        margin-top: 30vh;
+    }
+    .movie-details-page-container {
+        margin-top: 800px;
+        margin-bottom: 100px;
+    }
   }
 
-
+  @media screen and (max-width: 768px) {
+    .movie-recomendations{
+        margin-top: 35vh;
+    }
+    .movie-advice-selecters{
+        width: 100%;
+    }
+  }
   @media screen and (max-width: 576px) {
     .movie-upper-left{
         flex-direction: column;
@@ -158,5 +172,26 @@ backdrop-filter: blur(20px);
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    .movie-recomendations{
+        margin-top: 40vh;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .movie-upper-left{
+        flex-direction: column;
+    }
+    .movie-name{
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .movie-recomendations{
+        margin-top: 50vh;
+    }
+    .movie-details-page-container {
+        margin-top: 1000px;
+        margin-bottom: 100px;
     }
   }
