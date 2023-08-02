@@ -23,6 +23,8 @@
   flex-direction: column;
     text-align: center;
   margin-bottom: 50px;
+
+
 }
 .list-selecter-container {
   background-color: rgba(0, 0, 0, 0.452);
@@ -31,6 +33,8 @@
   justify-content: center;
   flex-direction: column;
   border-radius: 30px;
+  position: sticky;
+  top: 60px;
 }
 .list-selecter-button {
     cursor: pointer;
@@ -143,6 +147,32 @@ border: 1px solid white;
     background-color: rgb(128, 0, 0);
 
     font-weight: 900;
+}
+.animation-div{
+  color: rgba(255, 255, 255, 0.314);
+  animation: movies-loading 0.5s linear infinite alternate;
+}
+.loading-circle{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.34);
+  border-right-color:rgb(138, 0, 0);
+  animation:movies-loading-circle 1s ease infinite
+}
+@keyframes movies-loading-circle{
+
+  100%{
+    transform: rotate(360deg);
+  }
+}
+@keyframes movies-loading{
+  0%{
+    background-color: rgba(147, 0, 0, 0.264);
+  }
+  100%{
+    background-color: rgba(0, 0, 0, 0.721);
+  }
 }
 @media screen and (max-width: 450px) {
     .list-main-container {

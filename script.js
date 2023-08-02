@@ -71,7 +71,7 @@ getCarouselPopularMovies().then(e=>e.results).then(e=>{
         e.addEventListener("click",()=>{
             console.log(e)
             window.location.href="detail.html"
-            localStorage.setItem("detailId",e.id)
+            sessionStorage.setItem("detailId",e.id)
         })
     })
 
@@ -93,7 +93,7 @@ getCarouselNowPlayingMovies().then(e=>e.results).then(e=>{
         e.addEventListener("click",()=>{
             console.log(e)
             window.location.href="detail.html"
-            localStorage.setItem("detailId",e.id)
+            sessionStorage.setItem("detailId",e.id)
         
         })
     })
@@ -115,7 +115,7 @@ getCarouselPopularMovies().then(e=>e.results).then(e=>{
         e.addEventListener("click",()=>{
             console.log(e)
             window.location.href="detail.html"
-            localStorage.setItem("detailId",e.id)
+            sessionStorage.setItem("detailId",e.id)
         })
     })
 
@@ -168,7 +168,7 @@ firstSearchPageSearchContainerInput.addEventListener("keyup",()=>{
                 e.addEventListener("click",()=>{
                     console.log(e)
                     window.location.href="detail.html"
-                    localStorage.setItem("detailId",e.id)
+                    sessionStorage.setItem("detailId",e.id)
                 })
             })
         
@@ -206,7 +206,7 @@ movieAdviceSelecterButtonOneLeft.addEventListener("click",()=>{
             e.addEventListener("click",()=>{
                 console.log(e)
                 window.location.href="detail.html"
-                localStorage.setItem("detailId",e.id)
+                sessionStorage.setItem("detailId",e.id)
             })
         })
     
@@ -234,7 +234,7 @@ movieAdviceSelecterButtonOneRight.addEventListener("click",()=>{
             e.addEventListener("click",()=>{
                 console.log(e)
                 window.location.href="detail.html"
-                localStorage.setItem("detailId",e.id)
+                sessionStorage.setItem("detailId",e.id)
             })
         })
     })
@@ -261,7 +261,7 @@ movieAdviceSelecterButtonTwoLeft.addEventListener("click",()=>{
             e.addEventListener("click",()=>{
                 console.log(e)
                 window.location.href="detail.html"
-                localStorage.setItem("detailId",e.id)
+                sessionStorage.setItem("detailId",e.id)
             })
         })
     })
@@ -286,7 +286,7 @@ movieAdviceSelecterButtonTwoRight.addEventListener("click",()=>{
             e.addEventListener("click",()=>{
                 console.log(e)
                 window.location.href="detail.html"
-                localStorage.setItem("detailId",e.id)
+                sessionStorage.setItem("detailId",e.id)
             })
         })
     })
@@ -313,7 +313,7 @@ movieAdviceSelecterButtonTreLeft.addEventListener("click",()=>{
             e.addEventListener("click",()=>{
                 console.log(e)
                 window.location.href="detail.html"
-                localStorage.setItem("detailId",e.id)
+                sessionStorage.setItem("detailId",e.id)
             })
         })
     })
@@ -340,7 +340,7 @@ movieAdviceSelecterButtonTreMidd.addEventListener("click",()=>{
             e.addEventListener("click",()=>{
                 console.log(e)
                 window.location.href="detail.html"
-                localStorage.setItem("detailId",e.id)
+                sessionStorage.setItem("detailId",e.id)
             })
         })
     })
@@ -366,7 +366,7 @@ movieAdviceSelecterButtonTreRight.addEventListener("click",()=>{
             e.addEventListener("click",()=>{
                 console.log(e)
                 window.location.href="detail.html"
-                localStorage.setItem("detailId",e.id)
+                sessionStorage.setItem("detailId",e.id)
             })
         })
     })

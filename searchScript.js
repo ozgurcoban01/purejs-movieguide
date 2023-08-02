@@ -19,62 +19,53 @@ pageSelecterFirst.innerText="1"
 pageSelecterSecond.innerText="2"
 pageSelecterThird.innerText="3"
 
-localStorage.setItem("currentPage",1)
-localStorage.setItem("currentFilter","Now Playing")
+sessionStorage.setItem("currentPage",1)
+sessionStorage.setItem("currentFilter","now_playing")
 
 let currentFilter="Now Playing"
 
-
-async function getNowPlayingMoviesFirst(){
-    return await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=0e0b406c41969d57b72a434bf8f8ca7a&page=1").then(res=>res.json())
+async function getMovies(){
+    return await fetch("https://api.themoviedb.org/3/movie/"+sessionStorage.getItem("currentFilter")+"?api_key=0e0b406c41969d57b72a434bf8f8ca7a&page="+sessionStorage.getItem("currentPage")).then(res=>res.json())
 }
-async function getNowPlayingMovies(param){
-    return await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=0e0b406c41969d57b72a434bf8f8ca7a&page="+param).then(res=>res.json())
-}
-async function getPopularFilms(param){
-    return await fetch("https://api.themoviedb.org/3/movie/popular?api_key=0e0b406c41969d57b72a434bf8f8ca7a&page="+param).then(res=>res.json())
-}
-async function getTopRatedMovies(param){
-    return await fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=0e0b406c41969d57b72a434bf8f8ca7a&page="+param).then(res=>res.json())
-}
-async function getUpcomingFilms(param){
-    return await fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=0e0b406c41969d57b72a434bf8f8ca7a&page="+param).then(res=>res.json())
-}
-
-getNowPlayingMoviesFirst().then(e=>e.results).then((e)=>{
-    listMoviesSort.innerHTML=""
-    e.map(e=>{
-        listMoviesSort.innerHTML+=`
-        <div class=" list-movie"  id=${e.id}>
-          <div " class="list-movie-poster "><img  class="poster-image  rounded " src="https://image.tmdb.org/t/p/original/${e.poster_path}"></div>
-         <div class="list-movie-name p-1 rounded">${e.title}</div>
-        <div class="list-movie-score p-1 rounded">${e.vote_average}</div>
-    </div>
-        `
-    })
-
-    const arr = [...listMoviesSort.children];
-    arr.map((e)=>{
-        e.addEventListener("click",()=>{
-            console.log(e)
-            localStorage.setItem("detailId",e.id)
-            window.location.href="detail.html"
-
+setTimeout(() => {
+    getMovies().then(e=>e.results).then((e)=>{
+ 
+        listMoviesSort.innerHTML=""
+        e.map(e=>{
+            listMoviesSort.innerHTML+=`
+            <div class=" list-movie"  id=${e.id}>
+              <div " class="list-movie-poster "><img  class="poster-image  rounded " src="https://image.tmdb.org/t/p/original/${e.poster_path}"></div>
+             <div class="list-movie-name p-1 rounded">${e.title}</div>
+            <div class="list-movie-score p-1 rounded">${e.vote_average}</div>
+        </div>
+            `
         })
-    })
     
+        const arr = [...listMoviesSort.children];
+        arr.map((e)=>{
+            e.addEventListener("click",()=>{
+                console.log(e)
+                sessionStorage.setItem("detailId",e.id)
+                window.location.href="detail.html"
+    
+            })
+        })
+        
+    
+    })
+}, 2300)
 
-})
 
 
 
 selecterButton.forEach((e)=>{
     e.addEventListener("click",()=>{
         if(e.innerText=="Now Playing"){
+            selectedFilter.innerText="NOW PLAYING"
+            sessionStorage.setItem("currentFilter","now_playing")
+            sessionStorage.setItem("currentPage",1)
 
-            localStorage.setItem("currentFilter","Now Playing")
-
-            getPopularFilms(1).then(e=>e.results).then((e)=>{
+            getMovies().then(e=>e.results).then((e)=>{
                 listMoviesSort.innerHTML=""
                 e.map(e=>{
                     listMoviesSort.innerHTML+=`
@@ -85,15 +76,20 @@ selecterButton.forEach((e)=>{
                 </div>
                     `
                 })
+            
                 const arr = [...listMoviesSort.children];
-            arr.map((e)=>{
-                e.addEventListener("click",()=>{
-                    console.log(e)
-                    window.location.href="detail.html"
-                    localStorage.setItem("detailId",e.id)
+                arr.map((e)=>{
+                    e.addEventListener("click",()=>{
+                        console.log(e)
+                        sessionStorage.setItem("detailId",e.id)
+                        window.location.href="detail.html"
+            
+                    })
                 })
+                
+            
             })
-            })
+            
 
             selecterButtonNowPlaying.classList.add("selected-filter-button")
             selecterButtonPopular.classList.remove("selected-filter-button")
@@ -101,8 +97,10 @@ selecterButton.forEach((e)=>{
             selecterButtonUpcoming.classList.remove("selected-filter-button")
             
         }else if(e.innerText=="Popular"){
-            localStorage.setItem("currentFilter","Popular")
-            getTopRatedMovies(1).then(e=>e.results).then((e)=>{
+            sessionStorage.setItem("currentFilter","popular")
+            sessionStorage.setItem("currentPage",1)
+            selectedFilter.innerText="POPULAR"
+            getMovies().then(e=>e.results).then((e)=>{
                 listMoviesSort.innerHTML=""
                 e.map(e=>{
                     listMoviesSort.innerHTML+=`
@@ -113,14 +111,18 @@ selecterButton.forEach((e)=>{
                 </div>
                     `
                 })
+            
                 const arr = [...listMoviesSort.children];
                 arr.map((e)=>{
                     e.addEventListener("click",()=>{
                         console.log(e)
+                        sessionStorage.setItem("detailId",e.id)
                         window.location.href="detail.html"
-                        localStorage.setItem("detailId",e.id)
+            
                     })
                 })
+                
+            
             })
 
             selecterButtonNowPlaying.classList.remove("selected-filter-button")
@@ -129,8 +131,10 @@ selecterButton.forEach((e)=>{
             selecterButtonUpcoming.classList.remove("selected-filter-button")
            
         }else if(e.innerText=="Top Rated"){
-            localStorage.setItem("currentFilter","Top Rated")
-            getNowPlayingMovies(1).then(e=>e.results).then((e)=>{
+            sessionStorage.setItem("currentFilter","top_rated")
+            sessionStorage.setItem("currentPage",1)
+            selectedFilter.innerText="TOP RATED"
+            getMovies().then(e=>e.results).then((e)=>{
                 listMoviesSort.innerHTML=""
                 e.map(e=>{
                     listMoviesSort.innerHTML+=`
@@ -141,14 +145,18 @@ selecterButton.forEach((e)=>{
                 </div>
                     `
                 })
+            
                 const arr = [...listMoviesSort.children];
-            arr.map((e)=>{
-                e.addEventListener("click",()=>{
-                    console.log(e)
-                    window.location.href="detail.html"
-                    localStorage.setItem("detailId",e.id)
+                arr.map((e)=>{
+                    e.addEventListener("click",()=>{
+                        console.log(e)
+                        sessionStorage.setItem("detailId",e.id)
+                        window.location.href="detail.html"
+            
+                    })
                 })
-            })
+                
+            
             })
 
             selecterButtonNowPlaying.classList.remove("selected-filter-button")
@@ -157,8 +165,10 @@ selecterButton.forEach((e)=>{
             selecterButtonUpcoming.classList.remove("selected-filter-button")
             
         }else if(e.innerText=="Upcoming"){
-            localStorage.setItem("currentFilter","Upcoming")
-            getUpcomingFilms(1).then(e=>e.results).then((e)=>{
+            sessionStorage.setItem("currentFilter","upcoming")
+            sessionStorage.setItem("currentPage",1)
+            selectedFilter.innerText="UPCOMING"
+            getMovies().then(e=>e.results).then((e)=>{
                 listMoviesSort.innerHTML=""
                 e.map(e=>{
                     listMoviesSort.innerHTML+=`
@@ -169,14 +179,18 @@ selecterButton.forEach((e)=>{
                 </div>
                     `
                 })
+            
                 const arr = [...listMoviesSort.children];
                 arr.map((e)=>{
                     e.addEventListener("click",()=>{
                         console.log(e)
+                        sessionStorage.setItem("detailId",e.id)
                         window.location.href="detail.html"
-                        localStorage.setItem("detailId",e.id)
+            
                     })
                 })
+                
+            
             })
 
             selecterButtonNowPlaying.classList.remove("selected-filter-button")
@@ -190,18 +204,186 @@ selecterButton.forEach((e)=>{
 
 pageSelecters.forEach(e => {
     e.addEventListener("click",()=>{
-      
+
         if(e.classList.contains("page-button")){
          if(e.innerText!=1){
-            console.log(e)
-         }
+            sessionStorage.setItem("currentPage",parseInt(e.innerText))
+            pageSelecterFirst.innerText=parseInt(sessionStorage.getItem("currentPage"))-1
+            pageSelecterSecond.innerText=parseInt(sessionStorage.getItem("currentPage"))
+            pageSelecterThird.innerText=parseInt(sessionStorage.getItem("currentPage"))+1
+          
+            pageSelecterFirst.classList.remove("selected-selecter")
+            pageSelecterSecond.classList.add("selected-selecter")
+   
+            getMovies().then(e=>e.results).then((e)=>{
+                listMoviesSort.innerHTML=""
+                e.map(e=>{
+                    listMoviesSort.innerHTML+=`
+                    <div class=" list-movie"  id=${e.id}>
+                      <div " class="list-movie-poster "><img  class="poster-image  rounded " src="https://image.tmdb.org/t/p/original/${e.poster_path}"></div>
+                     <div class="list-movie-name p-1 rounded">${e.title}</div>
+                    <div class="list-movie-score p-1 rounded">${e.vote_average}</div>
+                </div>
+                    `
+                })
+            
+                const arr = [...listMoviesSort.children];
+                arr.map((e)=>{
+                    e.addEventListener("click",()=>{
+                        console.log(e)
+                        sessionStorage.setItem("detailId",e.id)
+                        window.location.href="detail.html"
+            
+                    })
+                })
+                
+            
+            })
+        }else{
+
+            sessionStorage.setItem("currentPage",parseInt(e.innerText))
+            pageSelecterFirst.innerText=parseInt(sessionStorage.getItem("currentPage"))
+            pageSelecterSecond.innerText=parseInt(sessionStorage.getItem("currentPage"))+1
+            pageSelecterThird.innerText=parseInt(sessionStorage.getItem("currentPage"))+2
+          
+            pageSelecterFirst.classList.add("selected-selecter")
+            pageSelecterSecond.classList.remove("selected-selecter")
+
+            getMovies().then(e=>e.results).then((e)=>{
+                listMoviesSort.innerHTML=""
+                e.map(e=>{
+                    listMoviesSort.innerHTML+=`
+                    <div class=" list-movie"  id=${e.id}>
+                      <div " class="list-movie-poster "><img  class="poster-image  rounded " src="https://image.tmdb.org/t/p/original/${e.poster_path}"></div>
+                     <div class="list-movie-name p-1 rounded">${e.title}</div>
+                    <div class="list-movie-score p-1 rounded">${e.vote_average}</div>
+                </div>
+                    `
+                })
+            
+                const arr = [...listMoviesSort.children];
+                arr.map((e)=>{
+                    e.addEventListener("click",()=>{
+                        console.log(e)
+                        sessionStorage.setItem("detailId",e.id)
+                        window.location.href="detail.html"
+            
+                    })
+                })
+                
+            
+            })
+            
+        }
         }
 
     })
 });
 
+pageSelecterLeft.addEventListener("click",()=>{
+    if(pageSelecterFirst.classList.contains("selected-selecter")){
+        return
+    }else{
+        if(pageSelecterFirst.innerText==1){
+            sessionStorage.setItem("currentPage",pageSelecterFirst.innerText)
+            pageSelecterFirst.innerText=parseInt(sessionStorage.getItem("currentPage"))
+            pageSelecterSecond.innerText=parseInt(sessionStorage.getItem("currentPage"))+1
+            pageSelecterThird.innerText=parseInt(sessionStorage.getItem("currentPage"))+2
+          
+            pageSelecterFirst.classList.add("selected-selecter")
+            pageSelecterSecond.classList.remove("selected-selecter")
+            getMovies().then(e=>e.results).then((e)=>{
+                listMoviesSort.innerHTML=""
+                e.map(e=>{
+                    listMoviesSort.innerHTML+=`
+                    <div class=" list-movie"  id=${e.id}>
+                      <div " class="list-movie-poster "><img  class="poster-image  rounded " src="https://image.tmdb.org/t/p/original/${e.poster_path}"></div>
+                     <div class="list-movie-name p-1 rounded">${e.title}</div>
+                    <div class="list-movie-score p-1 rounded">${e.vote_average}</div>
+                </div>
+                    `
+                })
+            
+                const arr = [...listMoviesSort.children];
+                arr.map((e)=>{
+                    e.addEventListener("click",()=>{
+                        console.log(e)
+                        sessionStorage.setItem("detailId",e.id)
+                        window.location.href="detail.html"
+            
+                    })
+                })
+                
+            
+            })
+        }else{
+            sessionStorage.setItem("currentPage",pageSelecterFirst.innerText)
+            pageSelecterFirst.innerText=parseInt(sessionStorage.getItem("currentPage"))-1
+            pageSelecterSecond.innerText=parseInt(sessionStorage.getItem("currentPage"))
+            pageSelecterThird.innerText=parseInt(sessionStorage.getItem("currentPage"))+1
+          
+            getMovies().then(e=>e.results).then((e)=>{
+                listMoviesSort.innerHTML=""
+                e.map(e=>{
+                    listMoviesSort.innerHTML+=`
+                    <div class=" list-movie"  id=${e.id}>
+                      <div " class="list-movie-poster "><img  class="poster-image  rounded " src="https://image.tmdb.org/t/p/original/${e.poster_path}"></div>
+                     <div class="list-movie-name p-1 rounded">${e.title}</div>
+                    <div class="list-movie-score p-1 rounded">${e.vote_average}</div>
+                </div>
+                    `
+                })
+            
+                const arr = [...listMoviesSort.children];
+                arr.map((e)=>{
+                    e.addEventListener("click",()=>{
+                        console.log(e)
+                        sessionStorage.setItem("detailId",e.id)
+                        window.location.href="detail.html"
+            
+                    })
+                })
+                
+            
+            })
 
+        }
+    }
+})
+pageSelecterRight.addEventListener("click",()=>{
+    sessionStorage.setItem("currentPage",pageSelecterThird.innerText)
+    pageSelecterFirst.innerText=parseInt(sessionStorage.getItem("currentPage"))-1
+    pageSelecterSecond.innerText=parseInt(sessionStorage.getItem("currentPage"))
+    pageSelecterThird.innerText=parseInt(sessionStorage.getItem("currentPage"))+1
 
+    pageSelecterFirst.classList.remove("selected-selecter")
+    pageSelecterSecond.classList.add("selected-selecter")
+
+    getMovies().then(e=>e.results).then((e)=>{
+        listMoviesSort.innerHTML=""
+        e.map(e=>{
+            listMoviesSort.innerHTML+=`
+            <div class=" list-movie"  id=${e.id}>
+              <div " class="list-movie-poster "><img  class="poster-image  rounded " src="https://image.tmdb.org/t/p/original/${e.poster_path}"></div>
+             <div class="list-movie-name p-1 rounded">${e.title}</div>
+            <div class="list-movie-score p-1 rounded">${e.vote_average}</div>
+        </div>
+            `
+        })
+    
+        const arr = [...listMoviesSort.children];
+        arr.map((e)=>{
+            e.addEventListener("click",()=>{
+                console.log(e)
+                sessionStorage.setItem("detailId",e.id)
+                window.location.href="detail.html"
+    
+            })
+        })
+        
+    
+    })
+})
 
 const searchButton=document.querySelector(".search")
 searchButton.addEventListener("click",()=>{

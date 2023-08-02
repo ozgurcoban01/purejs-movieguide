@@ -16,10 +16,10 @@ const movieAdviceSelecterIndicatorOne=document.querySelector(".movie-advice-sele
 const movieAdviceMoviesOne=document.querySelector(".movie-advice-movies-1")
 
 async function getCarouselTopRatedMovies(){
-    return await fetch("https://api.themoviedb.org/3/movie/"+localStorage.getItem("detailId")+"/recommendations?api_key=0e0b406c41969d57b72a434bf8f8ca7a").then(res=>res.json())
+    return await fetch("https://api.themoviedb.org/3/movie/"+sessionStorage.getItem("detailId")+"/recommendations?api_key=0e0b406c41969d57b72a434bf8f8ca7a").then(res=>res.json())
 }
 async function getCarouselPopularMovies(){
-    return await fetch("https://api.themoviedb.org/3/movie/"+localStorage.getItem("detailId")+"/similar?api_key=0e0b406c41969d57b72a434bf8f8ca7a").then(res=>res.json())
+    return await fetch("https://api.themoviedb.org/3/movie/"+sessionStorage.getItem("detailId")+"/similar?api_key=0e0b406c41969d57b72a434bf8f8ca7a").then(res=>res.json())
 }
 
 logo.addEventListener("click",()=>{
@@ -28,7 +28,7 @@ logo.addEventListener("click",()=>{
 })
 
 async function getBackdropPoster(){
-    return await fetch("https://api.themoviedb.org/3/movie/"+localStorage.getItem("detailId")+"?api_key=0e0b406c41969d57b72a434bf8f8ca7a").then(res=>res.json())
+    return await fetch("https://api.themoviedb.org/3/movie/"+sessionStorage.getItem("detailId")+"?api_key=0e0b406c41969d57b72a434bf8f8ca7a").then(res=>res.json())
 }
 
 getBackdropPoster().then((e)=>{
@@ -72,7 +72,7 @@ getCarouselPopularMovies().then(e=>e.results).then(e=>{
         e.addEventListener("click",()=>{
             console.log(e)
             window.location.href="detail.html"
-            localStorage.setItem("detailId",e.id)
+            sessionStorage.setItem("detailId",e.id)
         })
     })
 
@@ -97,7 +97,7 @@ movieAdviceSelecterButtonOneLeft.addEventListener("click",()=>{
             e.addEventListener("click",()=>{
                 console.log(e)
                 window.location.href="detail.html"
-                localStorage.setItem("detailId",e.id)
+                sessionStorage.setItem("detailId",e.id)
             })
         })
     
@@ -124,7 +124,7 @@ movieAdviceSelecterButtonOneRight.addEventListener("click",()=>{
             e.addEventListener("click",()=>{
                 console.log(e)
                 window.location.href="detail.html"
-                localStorage.setItem("detailId",e.id)
+                sessionStorage.setItem("detailId",e.id)
             })
         })
     })
