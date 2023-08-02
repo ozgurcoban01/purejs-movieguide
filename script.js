@@ -186,8 +186,11 @@ firstSearchPageSearchContainerInput.addEventListener("keyup",()=>{
 
 movieAdviceSelecterButtonOneLeft.addEventListener("click",()=>{
     movieAdviceSelecterIndicatorOne.style.left="0%"
+
     getCarouselPopularMovies().then(e=>e.results).then(e=>{
+
         movieAdviceMoviesOne.innerHTML=""
+        
         e.map(e=>{
             movieAdviceMoviesOne.innerHTML+=`
             <div class="movie-advice-movie" id=${e.id}>
@@ -208,6 +211,7 @@ movieAdviceSelecterButtonOneLeft.addEventListener("click",()=>{
         })
     
     })
+
     movieAdviceSelecterButtonOneLeft.style.color="white"
     movieAdviceSelecterButtonOneRight.style.color="gray"
 
@@ -373,6 +377,6 @@ movieAdviceSelecterButtonTreRight.addEventListener("click",()=>{
 
 const searchButton=document.querySelector(".search")
 searchButton.addEventListener("click",()=>{
-    window.location.href="detail.html"
+    window.location.href="search.html"
               
 })

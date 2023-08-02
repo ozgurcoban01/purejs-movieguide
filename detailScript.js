@@ -131,3 +131,8 @@ movieAdviceSelecterButtonOneRight.addEventListener("click",()=>{
     movieAdviceSelecterButtonOneLeft.style.color="gray"
     movieAdviceSelecterButtonOneRight.style.color="white"
 })
+
+const searchButton=document.querySelector(".search")
+searchButton.addEventListener("click",()=>{
+    window.location.href="search.html"         
+})
