@@ -60,6 +60,13 @@ setTimeout(() => {
 
 selecterButton.forEach((e)=>{
     e.addEventListener("click",()=>{
+        sessionStorage.setItem("currentPage",1)
+        pageSelecterFirst.innerText=1
+        pageSelecterSecond.innerText=2
+        pageSelecterThird.innerText=3
+        pageSelecterFirst.classList.add("selected-selecter")
+        pageSelecterSecond.classList.remove("selected-selecter")
+
         if(e.innerText=="Now Playing"){
             selectedFilter.innerText="NOW PLAYING"
             sessionStorage.setItem("currentFilter","now_playing")
@@ -350,6 +357,7 @@ pageSelecterLeft.addEventListener("click",()=>{
         }
     }
 })
+
 pageSelecterRight.addEventListener("click",()=>{
     sessionStorage.setItem("currentPage",pageSelecterThird.innerText)
     pageSelecterFirst.innerText=parseInt(sessionStorage.getItem("currentPage"))-1
