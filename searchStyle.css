@@ -110,7 +110,40 @@ font-size: medium;
     background-color: rgba(194, 0, 0, 0.452);
     font-weight: 900;
 }
+.page-selecters{
 
+    background-color: rgb(80, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.page-selecter{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    padding: 10px;
+text-align: center;
+transition: 0.3s;
+border-radius: 200px;
+color: gray;
+}
+.selecter-arrow{
+font-weight: 900;
+background-color: rgba(0, 0, 0, 0.411);
+border-radius: 200px;
+color: white;
+
+}
+.page-selecter:hover{
+border: 1px solid white;
+}
+.selected-selecter{
+    color: white;
+    background-color: rgb(128, 0, 0);
+
+    font-weight: 900;
+}
 @media screen and (max-width: 450px) {
     .list-main-container {
         

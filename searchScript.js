@@ -6,7 +6,18 @@ const selecterButtonNowPlaying=document.querySelector(".list-selecter-now-playin
 const selecterButtonPopular=document.querySelector(".list-selecter-popular")
 const selecterButtonTopRated=document.querySelector(".list-selecter-top-rated")
 const selecterButtonUpcoming=document.querySelector(".list-selecter-upcoming")
+const pageSelecterFirst=document.querySelector(".page-selecter-first")
+const pageSelecterSecond=document.querySelector(".page-selecter-second")
+const pageSelecterThird=document.querySelector(".page-selecter-third")
+const pageSelecterLeft=document.querySelector(".page-selecter-left")
+const pageSelecterRight=document.querySelector(".page-selecter-right")
+const pageSelecters=document.querySelectorAll(".page-selecter")
 
+pageSelecterLeft.innerText="<"
+pageSelecterRight.innerText=">"
+pageSelecterFirst.innerText="1"
+pageSelecterSecond.innerText="2"
+pageSelecterThird.innerText="3"
 
 localStorage.setItem("currentPage",1)
 localStorage.setItem("currentFilter","Now Playing")
@@ -177,7 +188,13 @@ selecterButton.forEach((e)=>{
     })
 });
 
+pageSelecters.forEach(e => {
+    e.addEventListener("click",()=>{
+        console.log(e)
+  
 
+    })
+});
 
 
 
