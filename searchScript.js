@@ -190,8 +190,12 @@ selecterButton.forEach((e)=>{
 
 pageSelecters.forEach(e => {
     e.addEventListener("click",()=>{
-        console.log(e)
-  
+      
+        if(e.classList.contains("page-button")){
+         if(e.innerText!=1){
+            console.log(e)
+         }
+        }
 
     })
 });
