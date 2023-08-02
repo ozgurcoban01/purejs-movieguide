@@ -6,6 +6,7 @@ const searchedFilms=document.querySelector(".searched-films")
 const firstSearchPageSearchContainerInput=document.querySelector(".first-search-page-search-container-input")
 const movieAdviceMoviePoster=document.querySelector(".movie-advice-movie-poster");
 const movieAdviceSelecterButton=document.querySelectorAll(".movie-advice-selecter")
+const seeAllMovies=document.querySelector(".see-all-movies")
 
 const movieAdviceSelecterButtonOneLeft=document.querySelector(".movie-advice-selecter-1-l")
 const movieAdviceSelecterButtonOneMidd=document.querySelector(".movie-advice-selecter-1-m")
@@ -36,7 +37,7 @@ console.log(firstSearchPageSearchContainerInput.value)
 
 
 async function getPopularFilms(){
-    return await fetch("https://api.themoviedb.org/3/discover/movie/?api_key=0e0b406c41969d57b72a434bf8f8ca7a").then(res=>res.json())
+    return await fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=0e0b406c41969d57b72a434bf8f8ca7a").then(res=>res.json())
 }
 async function getSearchedFilms(param){
     return await fetch("https://api.themoviedb.org/3/search/movie?api_key=0e0b406c41969d57b72a434bf8f8ca7a&query="+param).then(res=>res.json())
@@ -379,4 +380,8 @@ const searchButton=document.querySelector(".search")
 searchButton.addEventListener("click",()=>{
     window.location.href="search.html"
               
+})
+
+seeAllMovies.addEventListener("click",()=>{
+    window.location.href="search.html"
 })
