@@ -141,6 +141,7 @@ transition: 0.8s;
 .movie-advice-selecter-selection-3 {
   position: absolute;
   width: 30%;
+  height: 70%;
   min-height: 20px;
   background-color: rgb(131, 0, 0);
   margin: 5px;
@@ -293,4 +294,9 @@ color: white;
   color: rgb(255, 255, 255);
 
   background-color: rgba(91, 0, 0, 0.822);
+}
+@media screen and (max-width: 990px)  {
+  .movie-advice-selecters{
+    width: 100%;
+  }
 }
